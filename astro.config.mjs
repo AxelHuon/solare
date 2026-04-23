@@ -9,6 +9,25 @@ import sanity from "@sanity/astro"
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: [
+        "@sanity/visual-editing",
+        "@sanity/visual-editing > react/compiler-runtime",
+        "@sanity/visual-editing > @sanity/insert-menu > react/compiler-runtime",
+        "@sanity/visual-editing > @sanity/insert-menu > @sanity/ui > react-is",
+        "@sanity/visual-editing > @sanity/insert-menu > @sanity/ui > react-compiler-runtime",
+        "@sanity/visual-editing > @sanity/insert-menu > @sanity/ui > styled-components",
+        "@sanity/visual-editing > @sanity/ui > react-is",
+        "@sanity/visual-editing > @sanity/ui > react-compiler-runtime",
+        "@sanity/visual-editing > @sanity/ui > styled-components",
+        "@sanity/visual-editing > styled-components",
+        "@sanity/visual-editing > @sanity/mutate > lodash/groupBy.js",
+        "@sanity/visual-editing > @sanity/mutate > lodash/isObject.js",
+        "@sanity/visual-editing > @sanity/mutate > lodash/keyBy.js",
+        "@sanity/visual-editing > @sanity/mutate > lodash/partition.js",
+        "@sanity/visual-editing > @sanity/mutate > lodash/sortedIndex.js",
+      ],
+    },
   },
   integrations: [
     sanity({
@@ -17,6 +36,9 @@ export default defineConfig({
       useCdn: false,
       studioBasePath: "/admin",
       studioRouterHistory: "hash",
+      stega: {
+        studioUrl: "/admin#",
+      },
     }),
     react(),
   ],
