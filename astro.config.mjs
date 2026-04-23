@@ -17,9 +17,6 @@ export default defineConfig({
       useCdn: false,
       studioBasePath: "/admin",
       studioRouterHistory: "hash",
-      stega: {
-        studioUrl: "/admin#",
-      },
     }),
     react(),
   ],
